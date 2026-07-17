@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            background-color: rgb(90, 194, 218);
+            width: 500px;
+            height: 600px;
+            margin: auto;
+            text-align: center;
+        }
+        input{
+            margin: 8px ;
+            width: 200px;
+            height: 25px;
+            background: rgb(180, 188, 230);
+            border-radius: 10px;
+            margin-left: 150px;
+        }
+        div{
+            margin: 80px auto;
+            width: 500px;
+            background: rgb(104, 115, 231);
+            text-align: left;
+            border-radius: 10px;
+            padding:20px;
+        }
+        button{
+            display: inline-block;
+            padding: 12px 24px;
+            background-color: rgb(103, 41, 197);
+            color: white;
+            text-decoration: none; 
+            border-radius: 5px;
+            font-weight: bold;
+            margin-top: 20px;
+            margin-left: 200px;
+        }
+        button:hover{
+            background-color: rgb(222, 80, 211); 
+        }
+        a {
+            position: absolute;
+            top: 20px;    
+            left: 20px;   
+        }
+        .bad {
+            display: inline-block;
+            padding: 12px 24px;
+            background-color: rgb(103, 41, 197);
+            color: white;
+            text-decoration: none; 
+            border-radius: 5px;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+        .bad:hover {
+            background-color: rgb(222, 80, 211); 
+        }
+        h1{
+            color: white;
+        }
+        p{
+            margin-left: 150px;
+        }
+    
+    </style>
+</head>
+<body>
+    <body>
+        <a class="bad" href="/chapter_9/index.html" style="text-align: left">Back</a>
+  <div>
+    <h1 style="text-align: center;" >Restaurant Ordering System</h1>
+    <p>Customer name</p>
+    <input type="text" id="customer_input" placeholder="Name"><br><br>
+    <p>Menu Number</p>
+    <input type="number" id="menu_input" placeholder="Number">
+    <p>1-Fried Rice($3)</p>
+    <p>2-Noodle($4)</p>
+    <p>3-Hamburger($5)</p>
+    <p>4-Pizza($8)</p><br>
+    <p>Quantity</p>
+    <input type="number" id="quantity_input"><br><br>
+    <button onclick="Sum()">Calculate</button>
+    <h2 id="display_name"></h2>
+    <h2 id="display_menu"></h2>
+    <h2 id="display_quantity"></h2>
+    <h2 id="display_total"></h2>
+  </div>
+
+  <script>
+    function Sum() {
+
+      let nameValue = document.getElementById("customer_input").value;
+      let menuValue = parseInt(document.getElementById("menu_input").value);
+      let quantityValue = parseInt(document.getElementById("quantity_input").value);
+
+      let menu_name = "";
+      let price = 0;
+
+      if (menuValue === 1) { menu_name = "1-Fried Rice"; price = 3; }
+      else if (menuValue === 2) { menu_name = "2-Noodle"; price = 4; }
+      else if (menuValue === 3) { menu_name = "3-Hamburger"; price = 5; }
+      else if (menuValue === 4) { menu_name = "4-Pizza"; price = 8; }
+      else { menu_name = "Menu Not Found"; }
+
+      let total = price * quantityValue;
+
+   
+      document.getElementById("display_name").innerHTML = "Name: " + nameValue;
+      document.getElementById("display_menu").innerHTML = "Menu: " + menu_name;
+      document.getElementById("display_quantity").innerHTML = "Quantity: " + quantityValue;
+
+      if (price > 0) {
+        document.getElementById("display_total").innerHTML = "Total Price: $" + total;
+      } else {
+        document.getElementById("display_total").innerHTML = "";
+      }
+    }
+  </script>
+</body>
+    
+</body>
+</html>
